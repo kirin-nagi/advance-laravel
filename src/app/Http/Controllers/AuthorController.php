@@ -1,27 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use App\Models\Author;
+// フォームリクエストの読み込み
 use App\Http\Requests\AuthorRequest;
+
 class AuthorController extends Controller
 {
-    //
+    // データ一覧ページの表示
     public function index()
     {
         $authors = Author::all();
         return view('index', ['authors' => $authors]);
-    }
+   }
 
-    public function add(){
+   // データ追加用ページの表示
+    public function add()
+    {
         return view('add');
     }
 
-    public function create(AuthorRequest $request){
+    // 追加機能
+    public function create(AuthorRequest $request)
+    {
         $form = $request->all();
         Author::create($form);
         return redirect('/');
     }
 
+    // データ編集ページの表示
     public function edit(Request $request){
         $author = Author::find($request->id);
         return view('edit', ['form' => $author]);
@@ -50,4 +59,10 @@ class AuthorController extends Controller
         return redirect('/');
     }
 
+    public function verror()
+    {
+    return view('verror');
+    }
+
 }
+

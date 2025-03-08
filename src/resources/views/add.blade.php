@@ -29,18 +29,6 @@
 <form action="/add" method="post">
   <table>
   @csrf
-   @error('id')
-    <tr>
-        <th style="background-color: red">ERROR</th>
-        <td>
-            {{$errors->first('id')}}
-        </td>
-    </tr>
-    @enderror
-    <tr>
-      <th>id</th>
-      <td><input type="text" name="id" value="{{$form->id}}"></td>
-    </tr>
     @error('name')
     <tr>
         <th style="background-color: red">ERROR</th>
@@ -48,10 +36,10 @@
             {{$errors->first('name')}}
         </td>
     </tr>
-    @enderror
+    @enderror  
     <tr>
       <th>name</th>
-      <td><input type="text" name="name" value="{{$form->name"></td>
+      <td><input type="text" name="name"></td>
     </tr>
     @error('age')
     <tr>
@@ -60,12 +48,23 @@
             {{$errors->first('age')}}
         </td>
     </tr>
-    @enderror
+    @enderror  
     <tr>
       <th>age</th>
-      <td><input type="text" name="age" value="{{$form->age}}"></td>
+      <td><input type="text" name="age"></td>
     </tr>
     @error('nationality')
+    <tr>
+        <th style="background-color: red">ERROR</th>
+        <td>
+            {{$errors->first('nationality')}}
+        </td>
+    </tr>
+    @enderror  
+    <tr>
+      <th>nationality</th>
+      <td><input type="text" name="nationality"></td>
+    </tr>
     <tr>
       <th></th>
       <td><button>送信</button></td>
