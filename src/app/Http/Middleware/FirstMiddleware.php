@@ -16,8 +16,8 @@ class FirstMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $input = "ミドルウェアが書き換えています。";
-        $request->merge(['content=>$input'])
+        $input = "ミドルウェアが書き換えてます。";
+        $request->merge(['content'=>$input]);
         return $next($request);
     }
 }
