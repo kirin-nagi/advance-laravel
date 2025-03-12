@@ -18,14 +18,15 @@ td {
 
 @section('content')
 <table>
-    <tr>
-        <th>Books</th>
-    </tr>
-    @foreach ($item as $item)
-    <tr>
-        <td>
-            {{$item->getTitle()}}
-        </td>
-    </tr>
-    @endforeach
+  <tr>
+    <th>Books</th>
+  </tr>
+  @foreach ($items as $item)
+  <tr>
+    <td>
+      {{$item->getTitle()}}
+    </td>
+  </tr>
+  @endforeach
 </table>
+@endsection

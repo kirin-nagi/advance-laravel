@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $guarded = array('id');
-    public atatic $rules = array(
+    public static $rules = array(
         'author_id' => 'required',
         'title' => 'required',
     );
 
     public function getTitle(){
-        return 'ID' .$this->id . ':' . $this->title;
+        return 'ID'.$this->id . ':' . $this->title;
     }
 }

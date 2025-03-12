@@ -15,15 +15,36 @@ td {
   background-color: #EEEEEE;
   text-align: center;
 }
-</style>
 
+td table tbody tr td {
+  background-color: #EEEEEE !important;
+}
+</style>
 @section('title', 'author.index.blade.php')
 
 @section('content')
 <table>
-    <tr>
-        <th>Author</th>
-        <th>Book</th>
-    </tr>
-    @foreach ($item as $item)
+  <tr>
+    <th>Author</th>
+    <th>Book</th>
+  </tr>
+  @foreach ($items as $item)
+  <tr>
+    <td>
+      {{$item->getDetail()}}
+    </td>
+    <td>
+      @if ($item->books != null)
+      <table width="100%">
+        @foreach ($item->books as $obj)
+        <tr>
+          <td>{{ $obj->getTitle() }}</td>
+        </tr>
+        @endforeach
+      </table>
+      @endif
+    </td>
+  </tr>
+  @endforeach
 </table>
+@endsection
